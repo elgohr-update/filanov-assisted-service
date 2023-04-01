@@ -35,7 +35,7 @@ jobs:
         skipper make create-python-client
     - name: Publish assisted-service to Registry
       if: github.event_name != 'pull_request'
-      uses: elgohr/Publish-Docker-Github-Action@2.15
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: assisted-service
         username: ${{ secrets.DOCKER_USERNAME }}
@@ -46,7 +46,7 @@ jobs:
         tags: "latest,${{ env.GIT_REVISION }}"
     - name: Publish assisted-service PR image to Registry
       if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
-      uses: elgohr/Publish-Docker-Github-Action@2.15
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: assisted-service
         username: ${{ secrets.DOCKER_USERNAME }}

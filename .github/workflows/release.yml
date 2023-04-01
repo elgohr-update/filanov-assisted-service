@@ -35,7 +35,7 @@ jobs:
       id: get_tag
       run: echo ::set-env name=GIT_TAG::${GITHUB_REF/refs\/tags\//}
     - name: Publish assisted-service to Registry
-      uses: elgohr/Publish-Docker-Github-Action@2.15
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: assisted-service
         username: ${{ secrets.DOCKER_USERNAME }}
